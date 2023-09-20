@@ -4,7 +4,7 @@ int main(void)
 {
   char number[20];
   int length, i;
-  printf("�ݾ��� �Է��ϰ� Enter>");
+  printf("±Ý¾×À» ÀÔ·ÂÇÏ°í Enter>");
   scanf("%s", number);
   length=strlen(number);
   for(i=length;i>=0;i--)
