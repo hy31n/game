@@ -16,5 +16,8 @@
 ## 6_2_1 수직 슬라이드 바 출력 프로그램
 ![image](https://github.com/hy31n/game/assets/102163109/f1d21b47-0e74-4a83-a2e9-4c5b045fa4c5)
 
+## 6_2_1 수직 슬라이드 바 출력 프로그램(수정)
+![image](https://github.com/hy31n/game/assets/102163109/7c69df35-cee8-4fc6-9f06-41dd2d02554e)
+
 ## 6_3_1 블록 이동, 회전 프로그램
 ![image](https://github.com/hy31n/game/assets/102163109/19ab4ca1-197e-401c-8015-3ebdc4859370)
