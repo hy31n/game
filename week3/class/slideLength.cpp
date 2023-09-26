@@ -10,15 +10,16 @@ void gotoxy(int x, int y);
 
 int main(void)
 {
-   char *slide="¡á", key;
+   char *slide="â– ", key;
    int x=1, y=1;
    int h_slide_length, v_slide_length;
-   printf("½½¶óÀÌµå¹Ù Ç¥½Ã\n\n");
-   printf("¼öÆò ½½¶óÀÌµå¹ÙÀÇ ±æÀÌ(ÃÖ´ë 70)¸¦ \n");
-   printf("ÀÔ·ÂÇÏ°í Enter>");
+   
+   printf("ìŠ¬ë¼ì´ë“œë°” í‘œì‹œ\n\n");
+   printf("ìˆ˜í‰ ìŠ¬ë¼ì´ë“œë°”ì˜ ê¸¸ì´(ìµœëŒ€ 70)ë¥¼ \n");
+   printf("ì…ë ¥í•˜ê³  Enter>");
    scanf("%d", &h_slide_length);
-   printf("¼öÁ÷ ½½¶óÀÌµå¹ÙÀÇ ±æÀÌ(ÃÖ´ë 19)¸¦ \n");
-   printf("ÀÔ·ÂÇÏ°í Enter>");
+   printf("ìˆ˜ì§ ìŠ¬ë¼ì´ë“œë°”ì˜ ê¸¸ì´(ìµœëŒ€ 19)ë¥¼ \n");
+   printf("ì…ë ¥í•˜ê³  Enter>");
    scanf("%d", &v_slide_length);
    system("cls");
 
@@ -37,25 +38,29 @@ void draw_rectangle(int c, int r)
     int i, j;
     unsigned char a=0xa6;
     unsigned char b[7]; 
-    for(i=1;i<7;i++)
-   	b[i]=0xa0+i;
+    
+    for(i=1; i < 7; i++)
+   		b[i]=0xa0+i;
 
     printf("%c%c",a, b[3]);
-    for(i=0;i<c;i++)
-  	printf("%c%c", a, b[1]);
+    
+    for(i=0; i < c*2-1; i++)
+		printf("%c%c", a, b[1]);
+	  	
     printf("%c%c", a, b[4]);
     printf("\n");
-    for(i=0;i<r;i++)
-    {
-	printf("%c%c", a, b[2]);
-	for(j=0;j<c;j++)
-		printf("  ");
-	printf("%c%c",a, b[2]);
-	printf("\n");
-    }
+    
+    for(i=0; i < r; i++){
+		printf("%c%c", a, b[2]);
+			for(j=0; j < c*2-1; j++)
+				printf(" ");
+			printf("%c%c",a, b[2]);
+			printf("\n");
+	    }
+	    
     printf("%c%c", a, b[6]);
-    for(i=0;i<c;i++)
-	printf("%c%c", a, b[1]);
+    for(i=0; i < c*2-1; i++)
+		printf("%c%c", a, b[1]);
     printf("%c%c", a, b[5]);
     printf("\n");
 }
@@ -75,7 +80,7 @@ void draw_horizontal_slide(int x, int y, int length, char *s)
 void draw_vertical_slide(int x, int y, int length, char *s)
 {
 	gotoxy(x, 1);
-	draw_rectangle(1, length);
+	draw_rectangle(2, length);
 	gotoxy(x+2, y+1);
 	printf("%s", s);
 	gotoxy(x+6, length+1);
@@ -86,21 +91,21 @@ void move_arrow_key(char key, int *x1, int *y1, int x_b, int y_b)
 {
 	switch(key)
 	{
-	case 72:  //À§ÂÊ(»ó) ¹æÇâÀÇ È­»ìÇ¥ Å° ÀÔ·Â
+	case 72:  //ìœ„ìª½(ìƒ) ë°©í–¥ì˜ í™”ì‚´í‘œ í‚¤ ì…ë ¥  
 		*y1=*y1-1;
-		if (*y1<1)	*y1=1; //yÁÂÇ¥ÀÇ ÃÖ¼Ò°ª
+		if (*y1<1)	*y1=1; //yì¢Œí‘œì˜ ìµœì†Œê°’ 
 		break;
-	case 75:  //¿ŞÂÊ(ÁÂ) ¹æÇâÀÇ È­»ìÇ¥ Å° ÀÔ·Â
+	case 75:  //ì™¼ìª½(ì¢Œ) ë°©í–¥ì˜ í™”ì‚´í‘œ í‚¤ ì…ë ¥ 
 		*x1=*x1-1;
-		if (*x1<1)	*x1=1; //xÁÂÇ¥ÀÇ ÃÖ¼Ò°ª
+		if (*x1<1)	*x1=1; //xì¢Œí‘œì˜ ìµœì†Œê°’ 
 		break;
-	case 77:  //¿À¸¥ÂÊ(¿ì) ¹æÇâÀÇ È­»ìÇ¥ Å° ÀÔ·Â
+	case 77:  //ì˜¤ë¥¸ìª½(ìš°) ë°©í–¥ì˜ í™”ì‚´í‘œ í‚¤ ì…ë ¥ 
 		*x1=*x1+1;
-		if (*x1>x_b)  *x1=x_b; //xÁÂÇ¥ÀÇ ÃÖ´ë°ª
+		if (*x1>x_b)  *x1=x_b; //xì¢Œí‘œì˜ ìµœëŒ€ê°’ 
 		break;
-	case 80:  //¾Æ·¡ÂÊ(ÇÏ) ¹æÇâÀÇ È­»ìÇ¥ Å° ÀÔ·Â
+	case 80:  //ì•„ë˜ìª½(í•˜) ë°©í–¥ì˜ í™”ì‚´í‘œ í‚¤ ì…ë ¥ 
 		*y1=*y1+1;
-		if (*y1>y_b)  *y1=y_b; //yÁÂÇ¥ÀÇ ÃÖ´ë°ª
+		if (*y1>y_b)  *y1=y_b; //yì¢Œí‘œì˜ ìµœëŒ€ê°’
 		break;
 	default:
 		return;
@@ -112,4 +117,3 @@ void gotoxy(int x, int y)
    COORD Pos = {x - 1, y - 1};
    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 }
-
